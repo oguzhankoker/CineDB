@@ -1,15 +1,9 @@
-/*
-📁 Bölüm: Database (SQL Dump)
-📄 Amaç: Veritabanı şema ve yedek dosyası
-🔗 İlişkili: config.php, veritabanı tabloları
-⚙️ Özet: DB tabloları ve başlangıç verilerini içeren SQL dökümü
-*/
 -- phpMyAdmin SQL Dump
 -- version 5.2.1
 -- https://www.phpmyadmin.net/
 --
 -- Anamakine: 127.0.0.1
--- Üretim Zamanı: 22 Ara 2025, 21:09:49
+-- Üretim Zamanı: 03 Oca 2026, 16:37:23
 -- Sunucu sürümü: 10.4.32-MariaDB
 -- PHP Sürümü: 8.2.12
 
@@ -106,7 +100,8 @@ INSERT INTO `dizi_oylar` (`id`, `dizi_id`, `user_id`, `puan`, `tarih`) VALUES
 (5, 1, 1, 5, '2025-12-18 11:37:24'),
 (7, 12, 1, 2, '2025-12-18 11:37:32'),
 (8, 5, 1, 4, '2025-12-18 11:37:42'),
-(9, 20, 1, 5, '2025-12-18 11:37:48');
+(9, 20, 1, 5, '2025-12-18 11:37:48'),
+(10, 23, 1, 3, '2025-12-25 11:38:15');
 
 -- --------------------------------------------------------
 
@@ -176,42 +171,8 @@ INSERT INTO `filmler` (`id`, `baslik`, `yil`, `resim_url`, `kategori`, `sure`, `
 (23, 'Seven Samurai', 1954, 'https://media.trakt.tv/images/movies/000/000/293/posters/medium/fabf0d90bc.jpg.webp', 'all', 207, 'Aksiyon • Dram', 8.6, 'Bir köyü haydutlardan korumak için yedi samuray görevlendirilir.', 'Akira Kurosawa', 'Akira Kurosawa, Shinobu Hashimoto', 'Toshirô Mifune, Takashi Shimura', 'Japonya', 'https://www.youtube.com/embed/wJ1TOratCTo', 0),
 (24, 'Saving Private Ryan', 1998, 'https://media.trakt.tv/images/movies/000/000/700/posters/medium/496f16b86f.jpg.webp', 'all', 169, 'Savaş • Dram', 8.6, 'Normandiya çıkarmasında bir askeri kurtarmak için yola çıkan bir müfreze.', 'Steven Spielberg', 'Robert Rodat', 'Tom Hanks, Matt Damon, Tom Sizemore', 'ABD', 'https://www.youtube.com/embed/9CiW_DgxCnQ', 0),
 (25, 'The Green Mile', 1999, 'https://media.trakt.tv/images/movies/000/000/390/posters/medium/b4a1bd9f5e.jpg.webp', 'all', 189, 'Dram • Fantastik • Suç', 8.6, 'Bir idam mahkumu, kendisine emanet edilen nazik bir devin gizemli bir yeteneğe sahip olduğunu öğrenir.', 'Frank Darabont', 'Stephen King, Frank Darabont', 'Tom Hanks, David Morse, Bonnie Hunt', 'ABD', 'https://www.youtube.com/embed/Bg7epsq0OIQ', 0),
-(28, 'Gladiator', 2000, 'https://www.moviepostermem.com/images/products/74ab01b4-65a9-4b43-aa1e-f0994ce47295.jpg', 'featured', 155, 'Aksiyon • Dram', 8.5, 'İhanete uğrayan bir Roma generali, gladyatör olarak intikam arar.', 'Ridley Scott', 'David Franzoni, John Logan', 'Russell Crowe, Joaquin Phoenix', 'ABD', 'https://www.youtube.com/embed/owK1qxDselE', 1),
 (29, 'The Prestige', 2006, 'https://www.moviepostermem.com/images/products/74ab01b4-65a9-4b43-aa1e-f0994ce47295.jpg', 'all', 130, 'Dram • Gizem • Bilim Kurgu', 8.5, 'İki sihirbazın saplantılı rekabeti ölümcül bir hal alır.', 'Christopher Nolan', 'Jonathan Nolan, Christopher Nolan', 'Christian Bale, Hugh Jackman', 'ABD', 'https://www.youtube.com/embed/o4gHCmTQDVI', 1),
-(30, 'Whiplash', 2014, 'https://www.moviepostermem.com/images/products/74ab01b4-65a9-4b43-aa1e-f0994ce47295.jpg', 'all', 106, 'Dram • Müzik', 8.5, 'Genç bir davulcu ile acımasız eğitmeni arasındaki psikolojik savaş.', 'Damien Chazelle', 'Damien Chazelle', 'Miles Teller, J.K. Simmons', 'ABD', 'https://www.youtube.com/embed/7d_jQycdQGo', 1),
-(31, 'Parasite', 2019, 'https://www.moviepostermem.com/images/products/74ab01b4-65a9-4b43-aa1e-f0994ce47295.jpg', 'all', 132, 'Dram • Gerilim', 8.5, 'İki farklı sınıfa ait ailenin kesişen hayatları.', 'Bong Joon-ho', 'Bong Joon-ho, Han Jin-won', 'Song Kang-ho, Lee Sun-kyun', 'Güney Kore', 'https://www.youtube.com/embed/5xH0HfJHsaY', 1),
-(32, 'Joker', 2019, 'https://www.moviepostermem.com/images/products/74ab01b4-65a9-4b43-aa1e-f0994ce47295.jpg', 'all', 122, 'Suç • Dram • Gerilim', 8.4, 'Toplumdan dışlanan bir adamın Joker’e dönüşüm hikayesi.', 'Todd Phillips', 'Todd Phillips, Scott Silver', 'Joaquin Phoenix', 'ABD', 'https://www.youtube.com/embed/zAGVQLHvwOY', 1),
-(33, 'Avengers: Infinity War', 2018, 'https://www.moviepostermem.com/images/products/74ab01b4-65a9-4b43-aa1e-f0994ce47295.jpg', 'all', 149, 'Aksiyon • Fantastik • Bilim Kurgu', 8.4, 'Avengers, Thanos’un evreni yok etmesini durdurmaya çalışır.', 'Anthony Russo, Joe Russo', 'Christopher Markus, Stephen McFeely', 'Robert Downey Jr., Chris Evans', 'ABD', 'https://www.youtube.com/embed/6ZfuNTqbHE8', 0),
-(34, 'Avengers: Endgame', 2019, 'https://www.moviepostermem.com/images/products/74ab01b4-65a9-4b43-aa1e-f0994ce47295.jpg', 'all', 181, 'Aksiyon • Fantastik • Bilim Kurgu', 8.4, 'Evrenin kaderi için son savaş.', 'Anthony Russo, Joe Russo', 'Christopher Markus, Stephen McFeely', 'Robert Downey Jr., Chris Evans', 'ABD', 'https://www.youtube.com/embed/TcMBFSGVi1c', 0),
-(35, 'The Departed', 2006, 'https://www.moviepostermem.com/images/products/74ab01b4-65a9-4b43-aa1e-f0994ce47295.jpg', 'all', 151, 'Suç • Gerilim', 8.5, 'Polis ve mafya arasındaki köstebek savaşı.', 'Martin Scorsese', 'William Monahan', 'Leonardo DiCaprio, Matt Damon', 'ABD', 'https://www.youtube.com/embed/iojhqm0JTW4', 0),
-(36, 'Django Unchained', 2012, 'https://www.moviepostermem.com/images/products/74ab01b4-65a9-4b43-aa1e-f0994ce47295.jpg', 'all', 165, 'Dram • Western', 8.4, 'Bir köle, özgürlüğünü ve eşini kurtarmak için savaşır.', 'Quentin Tarantino', 'Quentin Tarantino', 'Jamie Foxx, Christoph Waltz', 'ABD', 'https://www.youtube.com/embed/0fUCuvNlOCg', 0),
-(37, 'The Wolf of Wall Street', 2013, 'https://www.moviepostermem.com/images/products/74ab01b4-65a9-4b43-aa1e-f0994ce47295.jpg', 'all', 180, 'Biyografi • Suç • Komedi', 8.2, 'Jordan Belfort’un aşırı lüks ve suç dolu hayatı.', 'Martin Scorsese', 'Terence Winter', 'Leonardo DiCaprio, Jonah Hill', 'ABD', 'https://www.youtube.com/embed/iszwuX1AK6A', 0),
-(38, 'Shutter Island', 2010, 'https://www.moviepostermem.com/images/products/74ab01b4-65a9-4b43-aa1e-f0994ce47295.jpg', 'all', 138, 'Gizem • Gerilim', 8.2, 'Bir akıl hastanesinde kaybolan hastanın esrarı.', 'Martin Scorsese', 'Laeta Kalogridis', 'Leonardo DiCaprio, Mark Ruffalo', 'ABD', 'https://www.youtube.com/embed/5iaYLCiq5RM', 0),
-(39, 'Mad Max: Fury Road', 2015, 'https://www.moviepostermem.com/images/products/74ab01b4-65a9-4b43-aa1e-f0994ce47295.jpg', 'all', 120, 'Aksiyon • Macera', 8.1, 'Çorak bir dünyada hayatta kalma mücadelesi.', 'George Miller', 'George Miller, Brendan McCarthy', 'Tom Hardy, Charlize Theron', 'Avustralya', 'https://www.youtube.com/embed/hEJnMQG9ev8', 0),
-(40, 'A Beautiful Mind', 2001, 'https://www.moviepostermem.com/images/products/74ab01b4-65a9-4b43-aa1e-f0994ce47295.jpg', 'all', 135, 'Biyografi • Dram', 8.2, 'Dahi matematikçi John Nash’in hayatı.', 'Ron Howard', 'Akiva Goldsman', 'Russell Crowe, Jennifer Connelly', 'ABD', 'https://www.youtube.com/embed/aS_d0Ayjw4o', 0),
-(41, 'Blade Runner 2049', 2017, 'https://www.moviepostermem.com/images/products/74ab01b4-65a9-4b43-aa1e-f0994ce47295.jpg', 'all', 164, 'Bilim Kurgu • Dram', 8.0, 'Gelecekte bir Blade Runner sırrı ortaya çıkarır.', 'Denis Villeneuve', 'Hampton Fancher', 'Ryan Gosling', 'ABD', '', 0),
-(42, 'The Lion King', 1994, 'https://www.moviepostermem.com/images/products/74ab01b4-65a9-4b43-aa1e-f0994ce47295.jpg', 'all', 88, 'Animasyon • Macera', 8.5, 'Genç bir aslan kral olmaya hazırlanır.', 'Roger Allers', 'Irene Mecchi', 'Matthew Broderick', 'ABD', '', 0),
-(43, 'Terminator 2', 1991, 'https://www.moviepostermem.com/images/products/74ab01b4-65a9-4b43-aa1e-f0994ce47295.jpg', 'all', 137, 'Aksiyon • Bilim Kurgu', 8.5, 'İnsanlığı korumak için bir robot gönderilir.', 'James Cameron', 'James Cameron', 'Arnold Schwarzenegger', 'ABD', '', 0),
-(44, 'Jurassic Park', 1993, 'https://www.moviepostermem.com/images/products/74ab01b4-65a9-4b43-aa1e-f0994ce47295.jpg', 'all', 127, 'Macera • Bilim Kurgu', 8.1, 'Dinozorlar kontrolden çıkar.', 'Steven Spielberg', 'Michael Crichton', 'Sam Neill', 'ABD', '', 0),
-(45, 'The Social Network', 2010, 'https://www.moviepostermem.com/images/products/74ab01b4-65a9-4b43-aa1e-f0994ce47295.jpg', 'all', 120, 'Biyografi • Dram', 7.7, 'Facebook’un kuruluş hikayesi.', 'David Fincher', 'Aaron Sorkin', 'Jesse Eisenberg', 'ABD', '', 0),
-(46, 'Inglourious Basterds', 2009, 'https://www.moviepostermem.com/images/products/74ab01b4-65a9-4b43-aa1e-f0994ce47295.jpg', 'all', 153, 'Aksiyon • Savaş', 8.3, 'Alternatif bir II. Dünya Savaşı.', 'Quentin Tarantino', 'Quentin Tarantino', 'Brad Pitt', 'ABD', '', 0),
-(47, 'City of God', 2002, 'https://www.moviepostermem.com/images/products/74ab01b4-65a9-4b43-aa1e-f0994ce47295.jpg', 'all', 130, 'Suç • Dram', 8.6, 'Brezilya’da suçun yükselişi.', 'Fernando Meirelles', 'Paulo Lins', 'Alexandre Rodrigues', 'Brezilya', '', 0),
-(48, 'WALL-E', 2008, 'https://www.moviepostermem.com/images/products/74ab01b4-65a9-4b43-aa1e-f0994ce47295.jpg', 'all', 98, 'Animasyon • Bilim Kurgu', 8.4, 'Yalnız bir robot dünyayı temizler.', 'Andrew Stanton', 'Andrew Stanton', 'Ben Burtt', 'ABD', '', 0),
-(49, 'The Truman Show', 1998, 'https://www.moviepostermem.com/images/products/74ab01b4-65a9-4b43-aa1e-f0994ce47295.jpg', 'all', 103, 'Dram • Bilim Kurgu', 8.1, 'Bir adamın hayatı canlı yayındadır.', 'Peter Weir', 'Andrew Niccol', 'Jim Carrey', 'ABD', '', 0),
-(50, 'La La Land', 2016, 'https://www.moviepostermem.com/images/products/74ab01b4-65a9-4b43-aa1e-f0994ce47295.jpg', 'all', 128, 'Dram • Müzik', 8.0, 'Hayaller ve aşk çatışır.', 'Damien Chazelle', 'Damien Chazelle', 'Ryan Gosling', 'ABD', '', 0),
-(51, 'The Shining', 1980, 'https://www.moviepostermem.com/images/products/74ab01b4-65a9-4b43-aa1e-f0994ce47295.jpg', 'all', 146, 'Korku • Dram', 8.4, 'Bir otelde deliliğe sürüklenen adam.', 'Stanley Kubrick', 'Stephen King', 'Jack Nicholson', 'ABD', '', 0),
-(52, 'No Country for Old Men', 2007, 'https://www.moviepostermem.com/images/products/74ab01b4-65a9-4b43-aa1e-f0994ce47295.jpg', 'all', 122, 'Suç • Gerilim', 8.1, 'Şiddet dolu bir kovalamaca.', 'Coen Kardeşler', 'Coen Kardeşler', 'Javier Bardem', 'ABD', '', 0),
-(53, 'Oldboy', 2003, 'https://www.moviepostermem.com/images/products/74ab01b4-65a9-4b43-aa1e-f0994ce47295.jpg', 'all', 120, 'Dram • Gizem', 8.4, 'İntikam dolu bir hikâye.', 'Park Chan-wook', 'Hwang Jo-yun', 'Choi Min-sik', 'Güney Kore', '', 0),
-(54, 'Amelie', 2001, 'https://www.moviepostermem.com/images/products/74ab01b4-65a9-4b43-aa1e-f0994ce47295.jpg', 'all', 122, 'Romantik • Komedi', 8.3, 'Paris’te masalsı bir hayat.', 'Jean-Pierre Jeunet', 'Guillaume Laurant', 'Audrey Tautou', 'Fransa', '', 0),
-(55, 'Spirited Away', 2001, 'https://www.moviepostermem.com/images/products/74ab01b4-65a9-4b43-aa1e-f0994ce47295.jpg', 'all', 125, 'Animasyon • Fantastik', 8.6, 'Ruhlar diyarında bir yolculuk.', 'Hayao Miyazaki', 'Hayao Miyazaki', 'Rumi Hiiragi', 'Japonya', '', 0),
-(56, 'Interstellar', 2014, 'https://www.moviepostermem.com/images/products/74ab01b4-65a9-4b43-aa1e-f0994ce47295.jpg', 'all', 169, 'Bilim Kurgu • Dram', 8.6, 'Uzayda insanlık için umut aranır.', 'Christopher Nolan', 'Jonathan Nolan', 'Matthew McConaughey', 'ABD', '', 0),
-(57, 'Fight Club', 1999, 'https://www.moviepostermem.com/images/products/74ab01b4-65a9-4b43-aa1e-f0994ce47295.jpg', 'all', 139, 'Dram • Gerilim', 8.8, 'Kaos ve kimlik sorgulaması.', 'David Fincher', 'Chuck Palahniuk', 'Brad Pitt', 'ABD', '', 0),
-(58, 'Forrest Gump', 1994, 'https://www.moviepostermem.com/images/products/74ab01b4-65a9-4b43-aa1e-f0994ce47295.jpg', 'all', 142, 'Dram • Romantik', 8.8, 'Sıradan bir adamın olağanüstü hayatı.', 'Robert Zemeckis', 'Eric Roth', 'Tom Hanks', 'ABD', '', 0),
-(59, 'Matrix', 1999, 'https://www.moviepostermem.com/images/products/74ab01b4-65a9-4b43-aa1e-f0994ce47295.jpg', 'all', 136, 'Bilim Kurgu • Aksiyon', 8.7, 'Gerçeklik bir simülasyondur.', 'Wachowski', 'Wachowski', 'Keanu Reeves', 'ABD', '', 0),
-(60, 'Se7en', 1995, 'https://www.moviepostermem.com/images/products/74ab01b4-65a9-4b43-aa1e-f0994ce47295.jpg', 'all', 127, 'Suç • Gerilim', 8.6, 'Yedi ölümcül günah.', 'David Fincher', 'Andrew Kevin Walker', 'Brad Pitt', 'ABD', '', 0),
-(61, 'The Green Mile', 1999, 'https://www.moviepostermem.com/images/products/74ab01b4-65a9-4b43-aa1e-f0994ce47295.jpg', 'all', 189, 'Dram • Fantastik', 8.6, 'İdam mahkumunun mucizesi.', 'Frank Darabont', 'Stephen King', 'Tom Hanks', 'ABD', '', 0),
-(62, 'The Pianist', 2002, 'https://www.moviepostermem.com/images/products/74ab01b4-65a9-4b43-aa1e-f0994ce47295.jpg', 'all', 150, 'Dram • Savaş', 8.5, 'Savaşta hayatta kalma.', 'Roman Polanski', 'Ronald Harwood', 'Adrien Brody', 'Polonya', '', 0),
-(63, 'Glory', 1989, 'https://www.moviepostermem.com/images/products/74ab01b4-65a9-4b43-aa1e-f0994ce47295.jpg', 'all', 122, 'Savaş • Dram', 7.8, 'Amerikan iç savaşı.', 'Edward Zwick', 'Kevin Jarre', 'Denzel Washington', 'ABD', '', 0);
+(30, 'Whiplash', 2014, 'https://www.moviepostermem.com/images/products/74ab01b4-65a9-4b43-aa1e-f0994ce47295.jpg', 'all', 106, 'Dram • Müzik', 8.5, 'Genç bir davulcu ile acımasız eğitmeni arasındaki psikolojik savaş.', 'Damien Chazelle', 'Damien Chazelle', 'Miles Teller, J.K. Simmons', 'ABD', 'https://www.youtube.com/embed/7d_jQycdQGo', 1);
 
 -- --------------------------------------------------------
 
@@ -292,11 +253,9 @@ CREATE TABLE `kullanici_kitaplik` (
 --
 
 INSERT INTO `kullanici_kitaplik` (`id`, `user_id`, `icerik_id`, `icerik_turu`, `eklenme_tarihi`) VALUES
-(2, 1, 5, 'film', '2025-12-17 07:37:22'),
 (4, 1, 2, 'dizi', '2025-12-17 07:38:04'),
-(10, 1, 4, 'film', '2025-12-22 07:00:48'),
-(11, 1, 9, 'film', '2025-12-22 08:52:41'),
-(12, 1, 12, 'dizi', '2025-12-22 08:52:54');
+(14, 1, 20, 'film', '2025-12-24 21:26:07'),
+(16, 1, 8, 'film', '2025-12-30 06:52:34');
 
 -- --------------------------------------------------------
 
@@ -326,7 +285,8 @@ INSERT INTO `oylar` (`id`, `film_id`, `kullanici_adi`, `user_id`, `puan`, `tarih
 (19, 23, 'Anonim', 3, 3, '2025-12-18 14:36:30'),
 (20, 20, 'Anonim', 3, 1, '2025-12-18 14:36:37'),
 (21, 6, 'Anonim', 3, 4, '2025-12-18 15:07:48'),
-(22, 9, 'Anonim', 1, 4, '2025-12-22 15:17:09');
+(22, 9, 'Anonim', 1, 4, '2025-12-22 15:17:09'),
+(23, 10, 'Anonim', 1, 3, '2025-12-30 11:17:54');
 
 -- --------------------------------------------------------
 
@@ -430,7 +390,9 @@ CREATE TABLE `yorumlar` (
 --
 
 INSERT INTO `yorumlar` (`id`, `film_id`, `dizi_id`, `kullanici_adi`, `user_id`, `yorum`, `tarih`) VALUES
-(20, 6, NULL, 'Anonim', 1, 'trrhtfrhtfgh', '2025-12-22 15:14:08');
+(20, 6, NULL, 'Anonim', 1, 'trrhtfrhtfgh', '2025-12-22 15:14:08'),
+(21, 7, NULL, 'Anonim', 1, 'sdasdasdasd', '2025-12-25 00:26:20'),
+(22, 20, NULL, 'Anonim', 1, 'jggugu', '2025-12-30 10:55:56');
 
 --
 -- Dökümü yapılmış tablolar için indeksler
@@ -527,7 +489,7 @@ ALTER TABLE `diziler`
 -- Tablo için AUTO_INCREMENT değeri `dizi_oylar`
 --
 ALTER TABLE `dizi_oylar`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- Tablo için AUTO_INCREMENT değeri `dizi_yorumlar`
@@ -557,13 +519,13 @@ ALTER TABLE `iletisim_mesajlari`
 -- Tablo için AUTO_INCREMENT değeri `kullanici_kitaplik`
 --
 ALTER TABLE `kullanici_kitaplik`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
 -- Tablo için AUTO_INCREMENT değeri `oylar`
 --
 ALTER TABLE `oylar`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
 
 --
 -- Tablo için AUTO_INCREMENT değeri `password_resets`
@@ -587,7 +549,7 @@ ALTER TABLE `yakinda`
 -- Tablo için AUTO_INCREMENT değeri `yorumlar`
 --
 ALTER TABLE `yorumlar`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
 
 --
 -- Dökümü yapılmış tablolar için kısıtlamalar
