@@ -1,0 +1,592 @@
+/*
+📁 Bölüm: UI (Statik Varlıklar - CSS)
+📄 Amaç: Film/Dizi detay sayfaları için stiller
+🔗 İlişkili: static/js/film-dizi-detay.js, film-detay.php, dizi-detay.php
+⚙️ Özet: Detay sayfası layout ve yorum/oy bileşenlerinin görünümünü sağlar
+*/
+/* =========================================================
+   1. GENEL AYARLAR
+   ========================================================= */
+body {
+  margin: 0;
+  background-color: #100f0f;
+  font-family: "Roboto", sans-serif;
+}
+
+/* =========================================================
+   2. HEADER
+   ========================================================= */
+.hdr-ust {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #202c3f;
+  height: 70px;
+}
+
+.hdr-ust div a {
+  color: #e3f5ff;
+}
+
+/* Sol */
+.hdr-ust__sol {
+  margin-left: 50px;
+  font-size: 30px;
+  text-decoration: none;
+  font-weight: 900;
+  color: #ffffffd9;
+}
+
+.hdr-ust__sol span {
+  color: #4ab1ff;
+}
+
+/* Sağ */
+.hdr-ust__sag {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding-right: 50px;
+}
+
+.hdr-ust__sag a {
+  padding: 10px 30px;
+  margin-left: 10px;
+  text-decoration: none;
+  color: #e3f5ff;
+  display: inline-block;
+  transition: background-color 0.3s;
+}
+
+.hdr-ust__sag a:hover {
+  background-color: #384d64;
+  border-radius: 5px;
+}
+
+.btn-anasayfa {
+  border-radius: 5px;
+  padding: 10px 35px !important;
+}
+
+/* Profil menüsü */
+.profil-menu {
+  position: relative;
+  display: inline-block;
+  vertical-align: middle;
+  margin-left: 10px;
+}
+
+.profil-ikon {
+  width: 40px;
+  height: 40px;
+  cursor: pointer;
+  color: #e3f5ff;
+  font-size: 38px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: color 0.3s, transform 0.3s;
+}
+
+.profil-ikon:hover {
+  color: #e3f5ff;
+  transform: scale(1.08);
+}
+
+.profil-dropdown {
+  position: absolute;
+  right: 0;
+  top: 55px;
+  width: 200px;
+  background-color: #27354c;
+  border-radius: 8px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.5);
+  display: none;
+  padding: 8px 0;
+  z-index: 99;
+}
+
+.profil-menu.active .profil-dropdown {
+  display: block;
+}
+
+.profil-dropdown a {
+  display: block;
+  padding: 8px 15px;
+  color: #e3f5ff;
+  text-decoration: none;
+  font-size: 14px;
+  transition: background 0.2s ease;
+}
+
+.profil-dropdown a:hover {
+  background-color: #384d64;
+}
+
+.profil-dropdown .logout {
+  color: #ff7272;
+}
+
+.profil-info {
+  display: flex;
+  align-items: center;
+  padding: 8px 15px;
+  gap: 8px;
+}
+
+.profil-info i {
+  font-size: 26px;
+  color: #9ec1d6;
+}
+
+.profil-info .isim {
+  color: #fff;
+  font-weight: 600;
+  font-size: 14px;
+}
+
+.profil-info .email {
+  font-size: 12px;
+  color: #9ec1d6;
+}
+
+/* =========================================================
+   3. MAIN
+   ========================================================= */
+main {
+  margin: 70px 60px;
+  background: linear-gradient(180deg, #f3f8f9, #ecf3f6);
+  border-radius: 12px;
+  box-shadow: rgba(0, 0, 0, 0.56) 0px 22px 70px 4px;
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-kitaplik {
+  display: inline-flex;
+  align-items: center;
+  cursor: pointer;
+  gap: 8px;
+  padding: 12px 18px;
+  border-radius: 10px;
+  text-decoration: none;
+  font-weight: 700;
+  border: 1px solid #cfe0ee;
+  background: #ffd900;
+  color: #1d2b3a;
+  transition: transform 0.15s ease, box-shadow 0.2s ease, background 0.2s ease;
+}
+
+.btn-kitaplik:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.12);
+}
+
+/* Geri butonu */
+.geri-btn {
+  position: absolute;
+  top: 3px;
+  left: 35px;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(32, 44, 63, 0.9);
+  color: #e3f5ff;
+  border: none;
+  border-radius: 999px;
+  padding: 10px 14px;
+  cursor: pointer;
+  font-weight: 600;
+  z-index: 5;
+  backdrop-filter: blur(2px);
+  transition: transform 0.15s ease, box-shadow 0.2s ease;
+}
+.geri-btn i {
+  font-size: 16px;
+}
+.geri-btn:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.25);
+}
+
+/* Hero */
+.detay-hero {
+  position: relative;
+  padding: 40px 40px 26px;
+  border-bottom: 1px solid #dde7ee;
+}
+
+.hero-icerik {
+  position: relative;
+  display: grid;
+  grid-template-columns: 230px 1fr;
+  gap: 24px;
+  align-items: start;
+}
+
+.hero-afis img {
+  width: 230px;
+  height: 330px;
+  border-radius: 10px;
+  object-fit: cover;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.35);
+}
+
+.hero-metin .film-baslik {
+  margin: 0 0 10px 0;
+  font-size: 34px;
+  color: #1d2b3a;
+  letter-spacing: 0.2px;
+}
+
+.film-etiketler {
+  list-style: none;
+  display: flex;
+  gap: 10px;
+  padding: 0;
+  margin: 0 0 12px 0;
+  flex-wrap: wrap;
+}
+.film-etiketler li {
+  background: #e7eef5;
+  color: #2a3a4c;
+  border: 1px solid #d7e2ec;
+  padding: 6px 10px;
+  border-radius: 999px;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.film-ozet {
+  color: #3a4a5b;
+  line-height: 1.6;
+  margin: 0 0 14px 0;
+  max-width: 900px;
+}
+
+.aksiyon-alani {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  flex-wrap: wrap;
+}
+
+.aksiyon-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 18px;
+  border-radius: 10px;
+  text-decoration: none;
+  font-weight: 700;
+  border: 1px solid #cfe0ee;
+  background: #ffffff;
+  color: #1d2b3a;
+  transition: transform 0.15s ease, box-shadow 0.2s ease, background 0.2s ease;
+}
+.aksiyon-btn:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.12);
+}
+.fragman-btn i {
+  font-size: 16px;
+}
+
+.kitaplik-btn {
+  background: linear-gradient(90deg, #ffd54a, #ffa726);
+  border: none;
+  border-radius: 10px;
+  padding: 12px 18px;
+  font-weight: 700;
+  cursor: pointer;
+  color: #000;
+  font-family: "Roboto", sans-serif;
+  transition: transform 0.2s, box-shadow 0.3s, filter 0.2s;
+}
+.kitaplik-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(255, 213, 74, 0.4);
+}
+.kitaplik-btn.ekli {
+  filter: saturate(1.1) contrast(1.05) brightness(0.98);
+}
+.kitaplik-btn.ekli::before {
+  content: "✓ ";
+}
+
+.inline-rating {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: rgba(32, 44, 63, 0.85);
+  padding: 8px 12px;
+  border-radius: 10px;
+}
+.inline-rating .stars {
+  display: flex;
+  gap: 4px;
+}
+.inline-rating i {
+  font-size: 20px;
+  color: #5f738d;
+  cursor: pointer;
+  transition: color 0.25s, transform 0.2s;
+}
+.inline-rating i:hover {
+  color: #ffd54a;
+  transform: scale(1.1);
+}
+.inline-rating i.aktif {
+  color: #ffc107;
+  text-shadow: 0 0 6px rgba(255, 193, 7, 0.5);
+}
+.inline-rating span {
+  color: #bcd4e0;
+  font-size: 14px;
+  margin-left: 5px;
+}
+
+.bilgi-grid {
+  margin-top: 16px;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(240px, 1fr));
+  gap: 10px 18px;
+}
+.bilgi-grid div {
+  background: #ffffffcc;
+  border: 1px solid #dbe7f0;
+  border-radius: 10px;
+  padding: 10px 12px;
+  color: #203043;
+  font-size: 14px;
+}
+.bilgi-grid div span {
+  display: block;
+  color: #8195a8;
+  font-weight: 700;
+  font-size: 12px;
+  margin-bottom: 3px;
+}
+
+/* =========================================================
+   FRAGMAN
+   ========================================================= */
+.fragman-blok {
+  padding: 8px 40px 24px;
+  border-top: 1px solid #d7e2ec;
+}
+.fragman-blok h2 {
+  margin: 12px 0;
+  color: #223347;
+}
+.video-wrap {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  background: #0f172a;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 16px 30px rgba(0, 0, 0, 0.15);
+}
+.video-wrap iframe {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+/* =========================================================
+   YORUMLAR ALANI
+   ========================================================= */
+.yorum-blok {
+  padding: 30px 40px 50px;
+  background: #f7fafc;
+  border-top: 1px solid #d7e2ec;
+}
+.yorum-blok h2 {
+  margin-bottom: 15px;
+  color: #223347;
+}
+.yorum-form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 25px;
+}
+.yorum-form textarea {
+  resize: none;
+  height: 90px;
+  padding: 12px;
+  border: 1px solid #cfd9e3;
+  border-radius: 10px;
+  font-size: 15px;
+  font-family: "Roboto", sans-serif;
+  outline: none;
+  transition: border 0.3s, box-shadow 0.3s;
+}
+.yorum-form textarea:focus {
+  border-color: #4ab1ff;
+  box-shadow: 0 0 0 3px rgba(74, 177, 255, 0.2);
+}
+.yorum-gonder {
+  align-self: flex-end;
+  background: linear-gradient(90deg, #4ab1ff, #2563eb);
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  padding: 10px 20px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.3s, transform 0.2s;
+}
+.yorum-gonder:hover {
+  transform: translateY(-2px);
+  background: linear-gradient(90deg, #5ec3ff, #3b82f6);
+}
+
+/* Liste */
+.yorum-listesi {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+.yorum-kutu {
+  background: #fff;
+  border: 1px solid #dbe7f0;
+  border-radius: 10px;
+  padding: 12px 15px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+}
+.yorum-baslik {
+  font-weight: 700;
+  color: #1f2f3e;
+  margin-bottom: 4px;
+}
+.yorum-tarih {
+  font-size: 12px;
+  color: #7b8b9a;
+  margin-bottom: 6px;
+}
+.yorum-icerik {
+  font-size: 14px;
+  color: #2a3b4c;
+  line-height: 1.5;
+}
+
+/* =========================================================
+   11. FOOTER
+   ========================================================= */
+.site-footer {
+  background-color: #202c3f;
+  color: #e3f5ff;
+  padding: 40px 60px 20px;
+  border-top: 3px solid #384d64;
+  font-family: "Roboto", sans-serif;
+}
+
+.footer-container {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 40px;
+}
+
+.footer-left {
+  flex: 1 1 300px;
+}
+.footer-left h2 {
+  font-size: 28px;
+  color: #ffffffd9;
+  margin-bottom: 10px;
+}
+.footer-left h2 span {
+  color: #4ab1ff;
+}
+.footer-left p {
+  color: #b8cad9;
+  font-size: 14px;
+  line-height: 1.5;
+  max-width: 300px;
+}
+
+.footer-center {
+  flex: 1 1 200px;
+}
+.footer-center h3 {
+  font-size: 18px;
+  margin-bottom: 10px;
+  color: #9ec1d6;
+}
+.footer-center ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.footer-center li {
+  margin-bottom: 8px;
+}
+.footer-center a {
+  text-decoration: none;
+  color: #e3f5ff;
+  font-size: 14px;
+  transition: color 0.3s;
+}
+.footer-center a:hover {
+  color: #4ab1ff;
+}
+
+.footer-right {
+  flex: 1 1 200px;
+}
+.footer-right h3 {
+  font-size: 18px;
+  margin-bottom: 10px;
+  color: #9ec1d6;
+}
+.social-icons {
+  display: flex;
+  gap: 12px;
+}
+.social-icons a {
+  color: #e3f5ff;
+  font-size: 20px;
+  transition: color 0.3s, transform 0.2s;
+}
+.social-icons a:hover {
+  color: #4ab1ff;
+  transform: scale(1.15);
+}
+
+.footer-bottom {
+  text-align: center;
+  margin-top: 40px;
+  border-top: 1px solid #384d64;
+  padding-top: 15px;
+  font-size: 13px;
+  color: #9ec1d6;
+}
+
+.inline-rating {
+  background-color: #2a3242;
+  padding: 8px 12px;
+  border-radius: 12px;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.inline-rating .fa {
+  font-size: 22px;
+  color: #8aa;
+  transition: color 0.2s;
+}
+
+.inline-rating .fa-star {
+  color: #f5c518; /* IMDb sarısı */
+}
+
+.inline-rating span {
+  color: #bcd;
+  font-size: 14px;
+}

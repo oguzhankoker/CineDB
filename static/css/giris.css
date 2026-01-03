@@ -1,0 +1,294 @@
+/*
+📁 Bölüm: UI (Statik Varlıklar - CSS)
+📄 Amaç: Giriş sayfası stilleri
+🔗 İlişkili: giris.php, static/js/giris.js
+⚙️ Özet: Giriş ekranı görünümü ve responsive düzenini tanımlar
+*/
+/* =========================================================
+   GENEL AYARLAR
+   ========================================================= */
+body {
+  margin: 0;
+  font-family: "Roboto", sans-serif;
+}
+
+/* =========================================================
+   ANA İÇERİK (MAIN)
+   ========================================================= */
+
+.hg {
+  height: 10px;
+  background: #000000;
+}
+
+/* =========================================================
+   ANA İÇERİK (GİRİŞ)
+   ========================================================= */
+.login-container {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-size: cover;
+  position: relative;
+  overflow: hidden;
+  z-index: 2;
+}
+
+.login-container::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: #000;
+  opacity: 0.3;
+  filter: blur(8px);
+  z-index: 0;
+}
+
+.login-box {
+  position: relative;
+  z-index: 1;
+  background: rgba(25, 33, 50, 0.85);
+  padding: 45px 55px;
+  border-radius: 16px;
+  box-shadow: 0 0 30px rgba(22, 23, 24, 0.15);
+  text-align: center;
+  width: 360px;
+  backdrop-filter: blur(10px);
+}
+
+.login-box h2 {
+  margin-bottom: 25px;
+  color: #e3f5ff;
+  font-size: 26px;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+
+/* =========================================================
+   FORM ELEMANLARI
+   ========================================================= */
+.input-group {
+  position: relative;
+  margin-bottom: 20px;
+}
+
+.input-group i {
+  position: absolute;
+  left: 15px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #9ec1d6;
+}
+
+.input-group input {
+  width: 80%;
+  padding: 15px 30px;
+  border: none;
+  border-radius: 8px;
+  background-color: rgba(255, 255, 255, 0.08);
+  color: #fff;
+  font-size: 15px;
+  outline: none;
+  transition: all 0.3s ease;
+}
+
+.input-group input:focus {
+  background-color: rgba(255, 255, 255, 0.15);
+  box-shadow: 0 0 30px rgba(22, 23, 24, 0.15);
+}
+
+/* =========================================================
+   BUTON
+   ========================================================= */
+.login-btn {
+  width: 100%;
+  padding: 12px;
+  background: linear-gradient(90deg, #4ab1ff, #0074e4);
+  border: none;
+  border-radius: 8px;
+  color: #fff;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.3s ease;
+}
+
+.login-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 0 15px rgba(22, 23, 24, 0.15);
+}
+
+/* =========================================================
+   LİNKLER
+   ========================================================= */
+.links {
+  margin-top: 15px;
+  display: flex;
+  justify-content: space-between;
+  font-size: 14px;
+}
+
+.links a {
+  color: #9ec1d6;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.links a:hover {
+  color: #4ab1ff;
+}
+
+/* =========================================================
+   INTRO ANİMASYONU
+   ========================================================= */
+#intro {
+  position: fixed;
+  inset: 0;
+  background: radial-gradient(circle at center, #0e1623 0%, #000 100%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+  animation: fadeOut 1s ease forwards;
+  animation-delay: 3s;
+}
+
+.intro-logo {
+  text-align: center;
+  font-size: 4em;
+  color: #e3f5ff;
+  font-weight: 900;
+  letter-spacing: 2px;
+  animation: zoomIn 2s ease forwards;
+}
+
+.intro-logo strong {
+  color: #4ab1ff;
+}
+
+@keyframes zoomIn {
+  0% {
+    transform: scale(0.2);
+    opacity: 0;
+  }
+  50% {
+    transform: scale(1.1);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes fadeOut {
+  0% {
+    opacity: 1;
+    visibility: visible;
+  }
+  100% {
+    opacity: 0;
+    visibility: hidden;
+  }
+}
+
+/* ==============================
+   CINE.DB DÜŞEN YAZILAR
+============================== */
+.cine-bg {
+  position: fixed;
+  inset: 0;
+  background: radial-gradient(circle at top, #0f172a, #020617);
+  overflow: hidden;
+  z-index: 0;
+}
+
+.cine-bg span {
+  position: absolute;
+  top: -100px; /* üstten başlasın */
+  color: #0029f7;
+  font-weight: 800;
+  letter-spacing: 2px;
+  user-select: none;
+  animation-name: fall;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+}
+
+/* RANDOM KONUM + HIZ */
+.cine-bg span:nth-child(1) {
+  left: 5%;
+  font-size: 42px;
+  animation-duration: 22s;
+  animation-delay: 0s;
+}
+.cine-bg span:nth-child(2) {
+  left: 15%;
+  font-size: 55px;
+  animation-duration: 28s;
+  animation-delay: 4s;
+}
+.cine-bg span:nth-child(3) {
+  left: 25%;
+  font-size: 36px;
+  animation-duration: 18s;
+  animation-delay: 2s;
+}
+.cine-bg span:nth-child(4) {
+  left: 35%;
+  font-size: 60px;
+  animation-duration: 30s;
+  animation-delay: 6s;
+}
+.cine-bg span:nth-child(5) {
+  left: 45%;
+  font-size: 44px;
+  animation-duration: 24s;
+  animation-delay: 1s;
+}
+.cine-bg span:nth-child(6) {
+  left: 55%;
+  font-size: 52px;
+  animation-duration: 26s;
+  animation-delay: 5s;
+}
+.cine-bg span:nth-child(7) {
+  left: 65%;
+  font-size: 38px;
+  animation-duration: 20s;
+  animation-delay: 3s;
+}
+.cine-bg span:nth-child(8) {
+  left: 75%;
+  font-size: 48px;
+  animation-duration: 27s;
+  animation-delay: 7s;
+}
+.cine-bg span:nth-child(9) {
+  left: 85%;
+  font-size: 54px;
+  animation-duration: 29s;
+  animation-delay: 2s;
+}
+.cine-bg span:nth-child(10) {
+  left: 95%;
+  font-size: 40px;
+  animation-duration: 21s;
+  animation-delay: 6s;
+}
+
+/* DÜŞME ANİMASYONU */
+@keyframes fall {
+  0% {
+    transform: translateY(-120px);
+    opacity: 0;
+  }
+  10% {
+    opacity: 0.15;
+  }
+  100% {
+    transform: translateY(110vh);
+    opacity: 0;
+  }
+}

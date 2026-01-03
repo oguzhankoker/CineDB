@@ -1,0 +1,21 @@
+/*
+📁 Bölüm: Documentation (Notlar)
+📄 Amaç: Proje içi kısa notlar ve dosya kullanım eşleştirmeleri
+🔗 İlişkili: css/js dosyaları, ilgili php sayfaları
+⚙️ Özet: Bu dosya geliştiricilere hangi stil dosyasının hangi sayfada kullanıldığını gösterir
+*/
+film-dizi-detay.css dosyasını kullanan sayfalar :
+dizi-detay.php
+film-detay.php
+hakkimda.php
+icerik-detay.php
+iletisim.php (iletisim.cssde var)
+index.php
+
+
+
+
+giris.php - giris.css
+kayit.php - kayit.css
+profil.php - profil.css
+sifre-sifirla.php/sifre-yenile.php - sifre-sifirlama.css

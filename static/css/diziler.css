@@ -1,0 +1,760 @@
+/*
+📁 Bölüm: UI (Statik Varlıklar - CSS)
+📄 Amaç: Dizi listeleme sayfası stilleri
+🔗 İlişkili: static/js/diziler.js, index.php
+⚙️ Özet: Dizi kartlarının görünümünü ve responsive düzenini içerir
+*/
+/* =========================================================
+   1. GENEL AYARLAR
+   ========================================================= */
+body {
+  margin: 0;
+  background-color: #100f0f;
+  font-family: "Roboto", sans-serif;
+}
+
+/* =========================================================
+   2. HEADER BÖLÜMÜ
+   ========================================================= */
+
+/* ---------- Üst Header Genel ---------- */
+.hdr-ust {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #202c3f;
+  height: 70px;
+}
+
+.hdr-ust div a {
+  color: #e3f5ff;
+}
+
+/* ---------- Üst Header Sol Taraf ---------- */
+.hdr-ust__sol {
+  margin-left: 50px;
+  font-size: 30px;
+  text-decoration: none;
+  font-weight: 900;
+  color: #ffffffd9;
+}
+
+.hdr-ust__sol span {
+  color: #4ab1ff;
+}
+
+/* ---------- Üst Header Sağ Taraf ---------- */
+.hdr-ust__sag {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding-right: 50px;
+}
+
+.hdr-ust__sag a {
+  padding: 10px 30px;
+  margin-left: 10px;
+  text-decoration: none;
+  color: #e3f5ff;
+  display: inline-block;
+  transition: background-color 0.3s;
+}
+
+.hdr-ust__sag a:hover {
+  background-color: #384d64;
+  border-radius: 5px;
+}
+
+.btn-anasayfa {
+  border-radius: 5px;
+  padding: 10px 35px !important;
+}
+
+/* ---------- Profil Menüsü ---------- */
+.profil-menu {
+  position: relative;
+  display: inline-block;
+  vertical-align: middle;
+  margin-left: 10px;
+}
+
+.profil-ikon {
+  width: 40px;
+  height: 40px;
+  cursor: pointer;
+  color: #e3f5ff;
+  font-size: 38px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: color 0.3s, transform 0.3s;
+}
+
+.profil-ikon:hover {
+  color: #e3f5ff;
+  transform: scale(1.08);
+}
+
+.profil-dropdown {
+  position: absolute;
+  right: 0;
+  top: 55px;
+  width: 200px;
+  background-color: #27354c;
+  border-radius: 8px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.5);
+  display: none;
+  padding: 8px 0;
+  z-index: 99;
+}
+
+.profil-menu.active .profil-dropdown {
+  display: block;
+}
+
+.profil-dropdown a {
+  display: block;
+  padding: 8px 15px;
+  color: #e3f5ff;
+  text-decoration: none;
+  font-size: 14px;
+  transition: background 0.2s ease;
+}
+
+.profil-dropdown a:hover {
+  background-color: #384d64;
+}
+
+.profil-dropdown .logout {
+  color: #ff7272;
+}
+
+.profil-info {
+  display: flex;
+  align-items: center;
+  padding: 8px 15px;
+  gap: 8px;
+}
+
+.profil-info i {
+  font-size: 26px;
+  color: #9ec1d6;
+}
+
+.profil-info .isim {
+  color: #fff;
+  font-weight: 600;
+  font-size: 14px;
+}
+
+.profil-info .email {
+  font-size: 12px;
+  color: #9ec1d6;
+}
+
+/* ---------- Alt Header ---------- */
+.hdr-alt {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #394860;
+  height: 60px;
+}
+
+.hdr-alt__sol a {
+  padding: 10px 35px !important;
+  text-decoration: none;
+  color: #e3f5ff;
+  font-size: 18px;
+  transition: all 0.2s;
+}
+
+.hdr-alt__sol a:hover {
+  background-color: #202c3fc7;
+  border-radius: 5px;
+}
+
+.btn-filmler {
+  margin-left: 50px;
+}
+
+.btn-diziler {
+  border-radius: 5px;
+  padding: 10px 35px !important;
+}
+
+.hdr-alt__sag {
+  display: flex;
+  align-items: center;
+  padding-right: 20px;
+  margin-right: 30px;
+}
+
+.hdr-alt__sag input[type="text"] {
+  height: 35px;
+  border: none;
+  padding: 0 10px;
+  border-radius: 5px 0 0 5px;
+  outline: none;
+  font-size: 16px;
+  background-color: #27354c;
+  color: #fff;
+}
+
+.hdr-alt__sag input[type="text"]::placeholder {
+  color: #9ec1d6;
+  font-style: italic;
+  opacity: 1;
+}
+
+.hdr-alt__sag button {
+  height: 35px;
+  width: 45px;
+  background-color: #27354c;
+  border: none;
+  border-radius: 0 5px 5px 0;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.hdr-alt__sag button i {
+  color: #3c4b65;
+  font-size: 25px;
+  font-weight: 100;
+}
+
+/* =========================================================
+   3. ANA İÇERİK (MAIN)
+   ========================================================= */
+main {
+  margin: 70px 60px;
+  background-color: #fff;
+  border-radius: 3px;
+  box-shadow: rgba(0, 0, 0, 0.56) 0px 22px 70px 4px;
+}
+
+/* ---------- Öne Çıkanlar ---------- */
+.one-cikan {
+  background-color: #202c3f;
+}
+
+.ana-baslik {
+  font-size: 20px;
+  font-weight: 700;
+  color: #e3f5ff;
+  padding: 25px 0 0 10px;
+}
+
+/* ---------- Kayan Slider ---------- */
+.kayan-container {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.kayan {
+  display: flex;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  gap: 18px;
+  padding: 10px 0;
+}
+
+.kayan::-webkit-scrollbar {
+  display: none;
+}
+
+/* ---------- Film Kartları ---------- */
+.yeni-kart {
+  flex: 0 0 calc((100% - (18px * 5)) / 7);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.kapak {
+  position: relative;
+  width: 100%;
+  height: 250px;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.kapak img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.25s ease;
+}
+
+.kapak:hover img {
+  transform: scale(1.05);
+}
+
+.kaplama {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.55);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.kapak:hover .kaplama {
+  opacity: 1;
+}
+
+.kaplama button {
+  margin: 6px 0;
+  padding: 8px 12px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 13px;
+  font-weight: 600;
+  transition: background 0.25s ease;
+}
+
+.btn-fragman {
+  background: #2f3842;
+  color: #fff;
+}
+
+.btn-fragman:hover {
+  background: #3b6f87;
+}
+
+.btn-kitaplik {
+  background: #ffd54a;
+  color: #000;
+}
+
+.btn-kitaplik:hover {
+  background: #e6c23e;
+}
+
+.baslik {
+  color: #fff;
+  font-size: 14px;
+  font-weight: 600;
+  margin: 8px 0 4px;
+  text-align: center;
+}
+
+.yil {
+  font-size: 12px;
+  color: #9ec1d6;
+}
+
+/* ---------- Kaydırma Butonları ---------- */
+.kaydir-btn {
+  position: absolute;
+  top: 40%;
+  transform: translateY(-50%);
+  background: transparent;
+  color: #fff;
+  border: none;
+  font-size: 28px;
+  cursor: pointer;
+  padding: 5px 10px;
+  transition: background 0.2s ease;
+  z-index: 2;
+}
+
+.kaydir-btn:hover {
+  background: #232425;
+}
+
+.kaydir-btn.onceki {
+  left: -35px;
+}
+
+.kaydir-btn.sonraki {
+  right: -35px;
+}
+
+/* =========================================================
+   4. YAKINDA GELECEKLER
+   ========================================================= */
+.yakinda {
+  height: 240px;
+  background-color: #394860;
+  display: flex;
+  padding: 15px 20px;
+}
+
+.yakinda-container {
+  text-align: center;
+  margin: auto;
+}
+
+.yakinda-container a {
+  background-color: #2731404b;
+  border-radius: 5px;
+  padding: 3px 10px;
+  text-decoration: none;
+  color: #e3f5ff;
+  font-size: 1em;
+}
+
+.yakinda-img {
+  border-radius: 50%;
+  height: 75px;
+  width: 75px;
+  border: 3px solid #273140;
+  overflow: hidden;
+  margin: 0 auto;
+  transition: all 0.3s ease;
+}
+
+.yakinda-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.yakinda-img:hover {
+  height: 200px;
+  width: 150px;
+  border-radius: 15px;
+  transform: scale(1.1);
+  z-index: 10;
+  position: relative;
+  margin-bottom: 15px;
+}
+
+/* =========================================================
+   5. GENEL (ANA İÇERİK + SIDEBAR)
+   ========================================================= */
+.genel {
+  display: flex;
+  justify-content: space-between;
+  background: #f3f8f9;
+}
+
+.genel-sol {
+  border-right: 5px solid #e7edf1;
+  width: 69%;
+}
+
+.genel-sidebar {
+  width: 30%;
+}
+
+.genel-baslik {
+  font-size: 30px;
+  font-weight: 700;
+  color: #273140 !important;
+  padding: 5px 0 0 5px;
+}
+
+/* =========================================================
+   6. TREND FİLMLER & FİLM ROBOTU
+   ========================================================= */
+.genel-filmler__film-siralari {
+  display: flex;
+  background-color: #27314057;
+  width: 90%;
+  height: 70px;
+  margin: 15px auto;
+  border-radius: 10px;
+  transition: all 0.3s;
+  color: #273140;
+}
+
+.genel-filmler__film-siralari img {
+  border-radius: 50%;
+  height: 50px;
+  width: 50px;
+  margin: auto 0 auto 10px;
+}
+
+.genel-filmler__film-siralari p {
+  margin: auto 20px;
+}
+
+.genel-filmler__film-siralari:hover {
+  width: 92%;
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px,
+    rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.17) 0px 12px 13px;
+}
+
+/* ---------- Film Robotu ---------- */
+.film-robotu {
+  padding: 15px 20px;
+  margin-bottom: 20px;
+}
+
+.film-robotu h1::before {
+  content: "🎬";
+  margin-right: 6px;
+}
+
+.film-robotu select {
+  width: 100%;
+  padding: 7px 9px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  background: #e5eef3;
+  cursor: pointer;
+}
+
+.film-robotu button {
+  width: 48%;
+  padding: 7px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.film-robotu .btn-getir,
+.film-robotu .btn-sifirla {
+  background: #dcdcdc;
+  color: #183c4d;
+}
+
+.film-robotu .btn-getir:hover,
+.film-robotu .btn-sifirla:hover {
+  background: #183c4d;
+  color: #dcdcdc;
+}
+
+/* =========================================================
+   7. FİLM TÜRLERİ & YILLAR
+   ========================================================= */
+.film-turleri__linkler {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 8px 40px;
+  padding: 15px;
+  background: #f3f8f9;
+}
+
+.film-turleri__linkler a {
+  text-decoration: none;
+  color: #243d4d;
+  font-size: 15px;
+  padding: 4px 8px;
+  border-radius: 6px;
+}
+
+.film-turleri__linkler a:hover {
+  background: #e5eef3;
+}
+
+.film-yillari {
+  background: #f3f8f9;
+  padding: 20px;
+  border-radius: 8px;
+}
+
+.film-yillari-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+}
+
+.film-yillari-grid button {
+  background: #e5eef3;
+  border: none;
+  border-radius: 6px;
+  padding: 10px 0;
+  font-weight: 500;
+  color: #243d4d;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.film-yillari-grid button:hover {
+  background: #243d4d;
+  color: #fff;
+}
+
+/* =========================================================
+   8. ANA FİLM GRID
+   ========================================================= */
+.film-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+  padding: 20px;
+}
+
+.genel-sol .yeni-kart {
+  flex: 0 0 calc((100% - (18px * 3)) / 4);
+  max-width: 210px;
+}
+
+.genel-sol .yeni-kart .kapak {
+  height: 280px;
+}
+
+.genel-sol .yeni-kart .baslik {
+  font-size: 15px;
+  font-weight: 700;
+  color: #243d4d;
+  margin-top: 8px;
+}
+
+.genel-sol .yeni-kart .yil {
+  font-size: 13px;
+  color: #777;
+}
+
+.genel-sol .yeni-kart:hover .baslik {
+  color: #275166;
+}
+
+.genel-sol .yeni-kart:hover .yil {
+  color: #183c4d;
+}
+
+/* =========================================================
+   9. SAYFALAMA
+   ========================================================= */
+.sayfalama-modern {
+  display: flex;
+  justify-content: center;
+  margin: 40px 0;
+}
+
+.sayfalama-modern ul {
+  display: flex;
+  list-style: none;
+  gap: 8px;
+}
+
+.sayfalama-modern a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  text-decoration: none;
+  background: #e5eef3;
+  color: #243d4d;
+  transition: all 0.3s ease;
+}
+
+.sayfalama-modern a:hover {
+  background: #243d4d;
+  color: #fff;
+  transform: translateY(-2px);
+}
+
+.sayfalama-modern a.aktif {
+  background: #275166;
+  color: #fff;
+}
+
+/* =========================================================
+   11. FOOTER BÖLÜMÜ
+   ========================================================= */
+.site-footer {
+  background-color: #202c3f;
+  color: #e3f5ff;
+  padding: 40px 60px 20px;
+  border-top: 3px solid #384d64;
+  font-family: "Roboto", sans-serif;
+}
+
+.footer-container {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 40px;
+}
+
+.footer-left {
+  flex: 1 1 300px;
+}
+
+.footer-left h2 {
+  font-size: 28px;
+  color: #ffffffd9;
+  margin-bottom: 10px;
+}
+
+.footer-left h2 span {
+  color: #4ab1ff;
+}
+
+.footer-left p {
+  color: #b8cad9;
+  font-size: 14px;
+  line-height: 1.5;
+  max-width: 300px;
+}
+
+.footer-center {
+  flex: 1 1 200px;
+}
+
+.footer-center h3 {
+  font-size: 18px;
+  margin-bottom: 10px;
+  color: #9ec1d6;
+}
+
+.footer-center ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.footer-center li {
+  margin-bottom: 8px;
+}
+
+.footer-center a {
+  text-decoration: none;
+  color: #e3f5ff;
+  font-size: 14px;
+  transition: color 0.3s;
+}
+
+.footer-center a:hover {
+  color: #4ab1ff;
+}
+
+.footer-right {
+  flex: 1 1 200px;
+}
+
+.footer-right h3 {
+  font-size: 18px;
+  margin-bottom: 10px;
+  color: #9ec1d6;
+}
+
+.social-icons {
+  display: flex;
+  gap: 12px;
+}
+
+.social-icons a {
+  color: #e3f5ff;
+  font-size: 20px;
+  transition: color 0.3s, transform 0.2s;
+}
+
+.social-icons a:hover {
+  color: #4ab1ff;
+  transform: scale(1.15);
+}
+
+.footer-bottom {
+  text-align: center;
+  margin-top: 40px;
+  border-top: 1px solid #384d64;
+  padding-top: 15px;
+  font-size: 13px;
+  color: #9ec1d6;
+}

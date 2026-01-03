@@ -1,0 +1,44 @@
+/*
+📁 Bölüm: UI (Statik Varlıklar - CSS)
+📄 Amaç: Hakkımda sayfası stilleri
+🔗 İlişkili: hakkimda.php
+⚙️ Özet: Hakkımda sayfası layout ve tipografisini tanımlar
+*/
+/* =========================================================
+   HAKKIMDA SAYFASI STİLİ
+   ========================================================= */
+
+.hakkimda-main {
+  background-color: #f3f8f9;
+  padding: 80px 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 60vh;
+}
+
+.hakkimda-icerik {
+  max-width: 900px;
+  background: #ffffff;
+  padding: 40px 60px;
+  border-radius: 10px;
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 20px 40px;
+  text-align: center;
+  color: #243d4d;
+  line-height: 1.8;
+}
+
+.hakkimda-icerik h1 {
+  font-size: 32px;
+  margin-bottom: 25px;
+  color: #27354c;
+}
+
+.hakkimda-icerik p {
+  font-size: 17px;
+  margin-bottom: 15px;
+}
+
+.hakkimda-icerik strong {
+  color: #4ab1ff;
+}

@@ -1,0 +1,87 @@
+/*
+📁 Bölüm: UI (Statik Varlıklar - CSS)
+📄 Amaç: İletişim sayfası stilleri
+🔗 İlişkili: iletisim.php
+⚙️ Özet: İletişim formu ve sayfa görünümünü sağlar
+*/
+/* =========================================================
+   İLETİŞİM SAYFASI STİLİ
+   ========================================================= */
+
+.iletisim-main {
+  background-color: #f3f8f9;
+  padding: 80px 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 70vh;
+}
+
+.iletisim-form {
+  max-width: 700px;
+  width: 100%;
+  background: #ffffff;
+  padding: 40px 60px;
+  border-radius: 10px;
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 20px 40px;
+  text-align: center;
+}
+
+.iletisim-form h1 {
+  font-size: 32px;
+  margin-bottom: 15px;
+  color: #27354c;
+}
+
+.iletisim-form p {
+  color: #243d4d;
+  margin-bottom: 30px;
+  font-size: 16px;
+}
+
+.iletisim-form form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.iletisim-form input,
+.iletisim-form textarea {
+  padding: 12px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  font-size: 15px;
+  outline: none;
+  resize: none;
+}
+
+.iletisim-form button {
+  background-color: #243d4d;
+  color: #fff;
+  border: none;
+  padding: 12px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: 600;
+  transition: all 0.3s;
+}
+
+.iletisim-form button:hover {
+  background-color: #4ab1ff;
+}
+
+.iletisim-bilgi {
+  margin-top: 30px;
+  color: #243d4d;
+}
+
+.iletisim-bilgi p {
+  margin: 8px 0;
+  font-size: 15px;
+}
+
+.iletisim-bilgi i {
+  margin-right: 8px;
+  color: #4ab1ff;
+}
