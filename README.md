@@ -35,7 +35,7 @@ CineDB, akademik projeler ve bireysel portföy çalışmaları için uygun bir �
 ### Frontend
 
 - HTML5
-- CSS3 (modern ve responsive tasarım)
+- CSS3 (modern tasarım)
 - JavaScript (dinamik etkileşimler)
 
 ### Backend
@@ -98,3 +98,5 @@ Web Developer / Öğrenci
 ## 📄 Lisans
 
 Bu proje eğitim ve kişisel kullanım amaçlıdır. Ticari kullanımlar için geliştirici ile iletişime geçilmesi önerilir.
+
+bu dosya tam olarak hazır değildir!!!
